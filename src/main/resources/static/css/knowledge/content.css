@@ -1,0 +1,28 @@
+.knowledge{
+	margin-top:50px;
+	border: 1px solid #DDDDDD;
+}
+
+.knowledgehead{
+	font-size:18px;
+	margin-bottom: 5px;
+}
+
+.time{
+	font-size: 12px;
+	color:#999;
+}
+
+
+.evaluate{
+	margin-top:50px;
+	border: 1px solid #DDDDDD;
+}
+
+.evaluateContent{
+	width:100%;
+}
+
+.evaluatearea{
+	margin-top:50px;
+}

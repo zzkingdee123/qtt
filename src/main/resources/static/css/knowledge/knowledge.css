@@ -1,0 +1,88 @@
+.myborder{
+	border:1px red solid;
+}
+
+
+div #mainContent{
+	float:left;
+	width:auto;
+}
+
+div .border {
+	border: solid 1px black;
+}
+
+div .right{
+	
+	float:left;
+	
+}
+
+/* ----------------- */
+
+.banner{
+	
+}
+.container-box{
+	height:100%;
+}
+
+.search{
+	margin-top: 30px;
+	//background-color: #F9F9F9;
+	
+}
+
+.total{
+	color:#999;
+	font-size:12px;
+}
+
+.content{
+	margin-top: 20px;
+	background-color: #F9F9F9;
+}
+
+.module{
+	padding-top: 40px;
+	border-top:10px; 
+	border-color: #DDDDDD;
+	border-right: 1px solid #D8D8D8;
+	height:80vh;
+}
+
+.dataarea{
+	padding-top: 40px;
+	border-top:2px; 
+	border-color: #DDDDDD;
+	padding-left:50px;
+	border-bottom: 1px solid #D8D8D8;
+}
+
+.modulename{
+	width:80%;
+}
+
+.knowledgehead{
+	font-size:18px;
+	margin-bottom: 20px;
+}
+
+.knowledgecontent{
+	margin-bottom: 20px;
+}
+
+.konwledgetag{
+	font-size:12px;
+}
+
+.knowledgetime{
+	margin-right: 200px;
+}
+
+#pagination{
+	 float: none;  
+    display: block;  
+    margin-left: auto;  
+    margin-right: auto;  
+}

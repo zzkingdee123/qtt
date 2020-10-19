@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.badminton.reserve.mapper.ArenaReserveMapper">
+    
+    <resultMap type="ArenaReserve" id="ArenaReserveResult">
+        <result property="id"    column="id"    />
+        <result property="arenaNo"    column="arena_no"    />
+        <result property="period"    column="period"    />
+        <result property="starttime"    column="starttime"    />
+    </resultMap>
+
+    <sql id="selectArenaReserveVo">
+        select id, arena_no, period, starttime from arena_reserve
+    </sql>
+
+    <select id="selectArenaReserveList" parameterType="ArenaReserve" resultMap="ArenaReserveResult">
+        <include refid="selectArenaReserveVo"/>
+        <where>  
+            <if test="arenaNo != null  and arenaNo != ''"> and arena_no = #{arenaNo}</if>
+            <if test="period != null  and period != ''"> and period = #{period}</if>
+            <if test="starttime != null  and starttime != ''"> and starttime = #{starttime}</if>
+        </where>
+    </select>
+    
+    <select id="selectArenaReserveById" parameterType="Long" resultMap="ArenaReserveResult">
+        <include refid="selectArenaReserveVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertArenaReserve" parameterType="ArenaReserve" useGeneratedKeys="true" keyProperty="id">
+        insert into arena_reserve
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="arenaNo != null and arenaNo != ''">arena_no,</if>
+            <if test="period != null and period != ''">period,</if>
+            <if test="starttime != null and starttime != ''">starttime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="arenaNo != null and arenaNo != ''">#{arenaNo},</if>
+            <if test="period != null and period != ''">#{period},</if>
+            <if test="starttime != null and starttime != ''">#{starttime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateArenaReserve" parameterType="ArenaReserve">
+        update arena_reserve
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="arenaNo != null and arenaNo != ''">arena_no = #{arenaNo},</if>
+            <if test="period != null and period != ''">period = #{period},</if>
+            <if test="starttime != null and starttime != ''">starttime = #{starttime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteArenaReserveById" parameterType="Long">
+        delete from arena_reserve where id = #{id}
+    </delete>
+
+    <delete id="deleteArenaReserveByIds" parameterType="String">
+        delete from arena_reserve where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

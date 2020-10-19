@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增场馆预定')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-reserve-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">场馆编号：</label>
+                <div class="col-sm-8">
+                    <input name="arenaNo" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">期间：</label>
+                <div class="col-sm-8">
+                    <input name="period" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">开始时间：</label>
+                <div class="col-sm-8">
+                    <input name="starttime" class="form-control" type="text" required>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var prefix = ctx + "badminton/reserve"
+        $("#form-reserve-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-reserve-add').serialize());
+            }
+        }
+    </script>
+</body>
+</html>
